@@ -8,10 +8,11 @@ const generateAppend = require('../../models/functions/generate-append.js')
 // result
 router.get('/:id', (req, res) => {
   const id = req.params.id
+  const serverURL = 'http://localhost:3000/'
 
   Url.findById(id)
     .lean()
-    .then(url => res.render('result', { result: url.append }))
+    .then(url => res.render('result', { result: serverURL + url.append }))
 })
 
 // submit
