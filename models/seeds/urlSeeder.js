@@ -1,5 +1,5 @@
 const db = require('../../config/mongoose.js')
-const Url = require('../urls.js')
+const Url = require('../url.js')
 
 const urls = require('../data/urls.json')
 
