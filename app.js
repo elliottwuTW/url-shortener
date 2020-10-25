@@ -6,7 +6,7 @@ require('./config/mongoose.js')
 const routes = require('./routes/index.js')
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',

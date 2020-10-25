@@ -2,7 +2,7 @@
 An simple app that transforms the format of an url and provides a service to redirect the shortened-url
 
 ### Main Page
-![]()
+![](https://raw.githubusercontent.com/elliottwuTW/url-shortener/master/project-picture.png)
 
 ### Features
 User can

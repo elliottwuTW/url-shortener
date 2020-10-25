@@ -9,7 +9,7 @@ const generateAppend = require('../../models/functions/generate-append.js')
 // result
 router.get('/:id', (req, res) => {
   const id = req.params.id
-  const serverURL = 'http://localhost:3000/'
+  const serverURL = process.env.PORT ? 'https://safe-sands-31680.herokuapp.com/' : 'http://localhost:3000/'
 
   Url.findById(id)
     .lean()
