@@ -17,7 +17,6 @@
         const result = document.querySelector('#result');
         result.style.display = 'block'
         result.select();
-
         try {
           const successful = document.execCommand('copy');
           const msg = successful ? 'successful' : 'unsuccessful';
@@ -25,6 +24,7 @@
         } catch (err) {
           console.log('Oops, unable to copy');
         }
+        result.style.display = 'none'
       })
     });
   })();
