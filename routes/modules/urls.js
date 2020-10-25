@@ -31,9 +31,9 @@ router.post('/', (req, res) => {
         Url.find()
           .lean()
           .then(urls => {
-            const existUrl = urls.find(url => url.origin === origin)
-            if (existUrl) {
-              res.redirect(`/urls/${existUrl._id}`)
+            const matchedUrl = urls.find(url => url.origin === origin)
+            if (matchedUrl) {
+              res.redirect(`/urls/${matchedUrl._id}`)
             } else {
               // get all existing appends
               getExistAppend()
