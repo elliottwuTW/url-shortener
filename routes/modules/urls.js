@@ -20,13 +20,13 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   let origin = req.body.origin
   const length = origin.length
-  // url 處理
+  // remove the last '/'
   origin = origin[length - 1] === '/' ? origin.substring(0, length - 1) : origin
 
   // Check if url exists
   urlExist(origin)
     .then(exist => {
-      if (!exist) res.redirect('/error')
+      if (!exist) return res.redirect('/error')
       else {
         Url.find()
           .lean()

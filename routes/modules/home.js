@@ -11,8 +11,10 @@ router.get('/', (req, res) => {
 router.get('/:append', (req, res) => {
   Url.findOne({ append: req.params.append })
     .then(url => {
-      const startIndex = url.origin.lastIndexOf('/') + 1
-      const redirectURL = url.origin.substring(startIndex, url.origin.length)
+      const urlStr = url.origin
+
+      const startIndex = urlStr.match(/https?:\/\//g)[0].length
+      const redirectURL = urlStr.substring(startIndex, urlStr.length)
       // absolute redirect
       res.redirect(`//${redirectURL}`)
     })

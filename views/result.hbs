@@ -1,9 +1,31 @@
 <div class="mt-4">
   <h3 class="mb-1">Success! Please use this link:</h3>
-  <div class="my-1">
+  <div class="my-2">
     <a href="{{result}}" target="_blank">{{result}}</a>
+    <textarea id='result' style="display: none;">{{result}}</textarea>
   </div>
-  <div class="row justify-content-center my-1">
-    <button type="button" class="col-3 btn btn-primary" style="font-size: larger;">Copy</button>
+  <div class="row justify-content-center mt-2">
+    <button id='copy-btn' type="button" class="col-3 btn btn-primary" style="font-size: larger;">Copy</button>
   </div>
 </div>
+
+<script>
+  (function () {
+    document.addEventListener("DOMContentLoaded", function () {
+      const copyBtn = document.querySelector('#copy-btn')
+      copyBtn.addEventListener('click', (event) => {
+        const result = document.querySelector('#result');
+        result.style.display = 'block'
+        result.select();
+
+        try {
+          const successful = document.execCommand('copy');
+          const msg = successful ? 'successful' : 'unsuccessful';
+          console.log('Copying text command was ' + msg);
+        } catch (err) {
+          console.log('Oops, unable to copy');
+        }
+      })
+    });
+  })();
+</script>

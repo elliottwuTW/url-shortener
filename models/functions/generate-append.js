@@ -1,8 +1,9 @@
+// sample element from input array
 function sample(array) {
   const index = Math.floor(Math.random() * array.length)
   return array[index]
 }
-
+// create 5-digits random letter and digit code
 function getRandomCode() {
   const LENGTH = 5
   const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz'
@@ -22,6 +23,7 @@ function generateAppend(existAppends) {
   let append = ''
   while (unfinished) {
     append = getRandomCode()
+    // unfinished while the existing appends contain the generated append
     unfinished = existAppends.includes(append)
   }
   return append
